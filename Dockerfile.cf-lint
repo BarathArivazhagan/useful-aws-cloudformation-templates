@@ -1,0 +1,8 @@
+FROM cfn-python-lint:latest
+
+WORKDIR /app
+COPY . app/
+
+RUN ls -ltra app/
+
+RUN cfn-lint app/**/*.yaml
