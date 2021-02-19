@@ -28,15 +28,9 @@ jobs:
         with:
           python-version: '3.7'
           architecture: 'x64'
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
           python -v
           pip -v
           pip install cfn-lint
@@ -54,21 +48,21 @@ jobs:
 #       with:
 #         args: "**/*.yaml"
         
-  build_with_docker:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      -
-        name: Login to DockerHub
-        uses: docker/login-action@v1 
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: actions/checkout@v2
-      - name: cfn-lint step
-        run: |
-          ls -ltra
-          docker run --rm -v `pwd`:/data barathece91/cfn-python-lint:latest /**/*.yaml
+#   build_with_docker:
+#     # The type of runner that the job will run on
+#     runs-on: ubuntu-latest
+#     steps:
+#       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#       -
+#         name: Login to DockerHub
+#         uses: docker/login-action@v1 
+#         with:
+#           username: ${{ secrets.DOCKERHUB_USERNAME }}
+#           password: ${{ secrets.DOCKERHUB_TOKEN }}
+#       - uses: actions/checkout@v2
+#       - name: cfn-lint step
+#         run: |
+#           ls -ltra
+#           docker run --rm -v `pwd`:/data barathece91/cfn-python-lint:latest /**/*.yaml
 
           
