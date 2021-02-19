@@ -69,6 +69,6 @@ jobs:
       - name: cfn-lint step
         run: |
           ls -ltra
-          docker run --rm -v `pwd`:/data cfn-python-lint:latest /**/*.yaml
+          docker run --rm -v `pwd`:/data barathece91/cfn-python-lint:latest /**/*.yaml
 
           
