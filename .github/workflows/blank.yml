@@ -35,7 +35,10 @@ jobs:
           pip -v
           pip install cfn-lint
           cfn-lint ec2/*.yaml
-          
+      - name: cfn_nag test
+        uses: stelligent/cfn_nag@master
+        with:
+          input_path: "*"
 #   build_with_action:
 #     runs-on: ubuntu-latest
 
