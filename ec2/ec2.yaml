@@ -14,6 +14,7 @@ Resources:
       UserData: !Base64 |
         #!/bin/bash -ex
         yum update -y
+        yum install -y git 
       Tags:
         - Key: Name
           Value: quick-java-docker
