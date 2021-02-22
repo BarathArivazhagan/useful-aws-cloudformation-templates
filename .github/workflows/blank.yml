@@ -38,7 +38,7 @@ jobs:
       - name: cfn_nag test
         uses: stelligent/cfn_nag@master
         with:
-          input_path: "ec2/*"
+          input_path: "*/*"
 #   build_with_action:
 #     runs-on: ubuntu-latest
 
